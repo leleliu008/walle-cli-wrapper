@@ -1,5 +1,5 @@
 version = $(shell bin/walle -v)
-filename= walle-$(version).tar.gz
+filename= walle-cli-$(version).tar.gz
 
 dist: bin/walle lib/walle-cli-all.jar zsh-completion/_walle
 	@tar zvcf $(filename) $^ && \
