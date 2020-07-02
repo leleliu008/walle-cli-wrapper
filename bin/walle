@@ -1,0 +1,4 @@
+#/bin/sh
+
+P=$(cd $(dirname $0);pwd)
+java -jar "${P}/../lib/walle-cli-all.jar" $@
