@@ -16,52 +16,6 @@ function _walle_commands() {
     _describe 'command' _commands
 }
 
-_put=(
-    '-c:set single channel.'
-    '--channel:set single channel.'
-    '-e:Comma-separated list of key=value info, eg: -e time=1,type=android.'
-    '--extraInfo:Comma-separated list of key=value info, eg: -e time=1,type=android.'
-)
-
-function _walle_put() {
-    _describe 'put' _put
-}
-
-_show=(
-    '-c:set single channel.'
-    '--channel:set single channel.'
-    '-e:Comma-separated list of key=value info, eg: -e time=1,type=android.'
-    '--extraInfo:Comma-separated list of key=value info, eg: -e time=1,type=android.'
-    '-r:get raw string from Channel id.'
-    '--raw:get raw string from Channel id.'
-)
-
-function _walle_show() {
-    _describe 'show' _show
-}
-
-_batch2=(
-    '-f:json format config file'
-    '--configFile:json format config file'
-)
-
-function _walle_batch2() {
-    _describe 'batch2' _batch2
-}
-
-_batch=(
-    '-f:plain text config file'
-    '--configFile:plain text config file'
-    '-c:Comma-separated list of channel, eg: -c meituan,xiaomi'
-    '--channelList:Comma-separated list of channel, eg: -c meituan,xiaomi'
-    '-e:Comma-separated list of key=value info, eg: -e time=1,type=android'
-    '--extraInfo:Comma-separated list of key=value info, eg: -e time=1,type=android'
-)
-
-function _walle_batch() {
-    _describe 'batch' _batch
-}
-
 function _walle() {
     local context state state_descr line
     typeset -A opt_args
@@ -74,30 +28,44 @@ function _walle() {
         option)
             case $words[1] in
                 rm)
-                    _arguments '*:remove:_files'
+                    _arguments '*: :_files -g "*.apk"'
                     ;;
                 put)
                     _arguments \
-                        ':put:_walle_put' \
-                        ':inputFile:_files' \
-                        ':outputFile:_files'
+                        '(--channel -c)-c[set single channel]:channel-name:(channelName)' \
+                        '(--channel -c)--channel[set single channel]:channel-name:(channnelName)' \
+                        '(--extraInfo -e)-e[Comma-separated list of key=value info, eg: -e time=1,type=android.]: :(key1=value2,key2=value2)' \
+                        '(--extraInfo -e)--extraInfo[Comma-separated list of key=value info, eg: -e time=1,type=android.]: :(key1=value2,key2=value2)' \
+                        ':inputFile:_files -g "*.apk"' \
+                        ':outputFile:_files -/'
                     ;;
                 show)
                     _arguments \
-                        ':show:_walle_show' \
-                        '*:inputFile:_files'
+                        '(--channel -c)-c[set single channel]:channel-name:(channelName)' \
+                        '(--channel -c)--channel[set single channel]:channel-name:(channnelName)' \
+                        '(--extraInfo -e)-e[Comma-separated list of key=value info, eg: -e time=1,type=android.]: :(key1=value2,key2=value2)' \
+                        '(--extraInfo -e)--extraInfo[Comma-separated list of key=value info, eg: -e time=1,type=android.]: :(key1=value2,key2=value2)' \
+                        '(--raw -r)-r[get raw string from Channel id]' \
+                        '(--raw -r)--raw[get raw string from Channel id]' \
+                        '*:inputFile:_files -g "*.apk"'
                     ;;
                 batch2)
                     _arguments \
-                        ':batch2:_walle_batch2' \
-                        ':inputFile:_files' \
-                        '::outputDIR:_files'
+                        '(--configFile -f)-f[json format config file]:config-file:_files' \
+                        '(--configFile -f)--configFile[json format config file]:config-file:_files' \
+                        ':inputFile:_files -g "*.apk"' \
+                        '::outputDIR:_files -/'
                     ;;
                 batch)
                     _arguments \
-                        ':batch:_walle_batch' \
-                        ':inputFile:_files' \
-                        '::outputDIR:_files'
+                        '(--configFile -f)-f[plain text config file]:config-file:_files' \
+                        '(--configFile -f)--configFile[plain text config file]:config-file:_files' \
+                        '(--channelList -c)-c[Comma-separated list of channel, eg: -c huawei,xiaomi]:channel-list:(huawei,xiaomi)' \
+                        '(--channelList -c)--channelList[Comma-separated list of channel, eg: -c huawei,xiaomi]:channel-list:(huawei,xiaomi)' \
+                        '(--extraInfo -e)-e[Comma-separated list of key=value info, eg: -e time=1,type=android]:extra-info:(time=1,type=android)' \
+                        '(--extraInfo -e)--extraInfo[Comma-separated list of key=value info, eg: -e time=1,type=android]:extra-info:(time=1,type=android)' \
+                        ':inputFile:_files -g "*.apk"' \
+                        '::outputDIR:_files -/'
                     ;;
                 *);;
             esac

@@ -12,6 +12,9 @@ download-walle-cli:
 	curl -LO https://github.com/Meituan-Dianping/walle/releases/download/v$(version)/walle-cli-all.jar
 
 clean:
-	rm $(filename)
+	rm -f $(filename)
+	rm -f  msys2/walle-cli-$(version)*.tar.gz
+	rm -rf msys2/src
+	rm -rf msys2/pkg
 
 .PHONY: clean download-walle-cli
