@@ -7,7 +7,7 @@ a POSIX sh script wrapper for [walle-cli](https://github.com/Meituan-Dianping/wa
 |-|-|-|
 |`macOS`|[HomeBrew](http://blog.fpliu.com/it/os/macOS/software/HomeBrew)|`brew tap leleliu008/fpliu`<br>`brew install walle-cli`|
 |`GNU/Linux`|[LinuxBrew](http://blog.fpliu.com/it/software/LinuxBrew)|`brew tap leleliu008/fpliu`<br>`brew install walle-cli`|
-|`ArchLinux`<br>`ArcoLinux`<br>`Manjaro Linux`<br>`Windows/msys2`|[pacman](http://blog.fpliu.com/it/software/pacman)|`curl -LO https://github.com/leleliu008/androidx/releases/download/v1.1.6/walle-cli-1.1.6-1-any.pkg.tar.gz`<br>`pacman -Syyu --noconfirm`<br>`pacman -U walle-cli-1.1.6-1-any.pkg.tar.gz`|
+|`ArchLinux`<br>`ArcoLinux`<br>`Manjaro Linux`<br>`Windows/msys2`|[pacman](http://blog.fpliu.com/it/software/pacman)|`curl -LO https://github.com/leleliu008/walle-cli-wrapper/releases/download/v1.1.6/walle-cli-1.1.6-1-any.pkg.tar.gz`<br>`pacman -Syyu --noconfirm`<br>`pacman -U walle-cli-1.1.6-1-any.pkg.tar.gz`|
 |`Windows/WSL`|[LinuxBrew](http://blog.fpliu.com/it/software/LinuxBrew)|`brew tap leleliu008/fpliu`<br>`brew install walle-cli`|
 
 ## Install using shell script
