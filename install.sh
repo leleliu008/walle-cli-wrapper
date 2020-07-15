@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION='0.1.0'
+VERSION='1.1.6'
 FILE_NAME="walle-cli-${VERSION}.tar.gz"
 URL="https://github.com/leleliu008/walle-cli/releases/download/v${VERSION}/${FILE_NAME}"
 INSTALL_DIR=/usr/local/opt/walle-cli
