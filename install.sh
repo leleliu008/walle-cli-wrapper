@@ -2,7 +2,7 @@
 
 VERSION='1.1.6'
 FILE_NAME="walle-cli-${VERSION}.tar.gz"
-URL="https://github.com/leleliu008/walle-cli/releases/download/v${VERSION}/${FILE_NAME}"
+URL="https://github.com/leleliu008/walle-cli-wrapper/releases/download/v${VERSION}/${FILE_NAME}"
 INSTALL_DIR=/usr/local/opt/walle-cli
 DEST_LINK_BIN=/usr/local/bin/walle
 DEST_LINK_ZSH_COMPLETION=/usr/local/share/zsh/site-functions/_walle
