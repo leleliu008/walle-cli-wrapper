@@ -9,7 +9,7 @@ license=('custom')
 url="https://github.com/leleliu008/walle-cli-wrapper"
 makedepends=()
 source=("https://github.com/leleliu008/walle-cli-wrapper/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.gz")
-sha256sums=('eef6d72c11e0ab35ef6937eea76087be1ae71a415ab12f85968ad6d627033284')
+sha256sums=('511d8977e294ef5795e079e8fa0137a11592e6d2f2148523267cd4fcd6233184')
 
 build() {
     true
