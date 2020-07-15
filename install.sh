@@ -86,7 +86,7 @@ main() {
         cat > bin/walle <<EOF
 #!/bin/sh
 
-java -jar /usr/local/lib/walle-cli-all.jar \$@
+java -jar $INSTALL_DIR/lib/walle-cli-all.jar \$@
 EOF
         
         chown -R $(own .) .
